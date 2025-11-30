@@ -1,0 +1,24 @@
+import pandas as pd
+import numpy as np
+import streamlit as st
+st.title('My First streamlit App')
+st.write('This is a simple app to demonstrate the basic cfuntionalities of Streamlit')
+st.sidebar.header('User Input Features')
+user_name=st.sidebar.text_input('what is your name:','MANASA')
+age=st.sidebar.slider('select your age',0,100,38)
+favourite_color = st.sidebar.selectbox('what is your favourite colour? ',['red','blue','green','yellow'])
+st.header(f"Welcome, {user_name}!")
+st.write(f"You are {age} years old and your favorite color is {favourite_color}.")
+# to display data
+st.subheader('here is some random data:')
+data=pd.DataFrame(np.random.randn(10,5),columns=('col % d' % i for i in range(5)))
+st.dataframe(data)
+if st.checkbox('show the raw data'):
+   st.subheader('raw data')
+   st.write(data)
+if st.button('say hello'):
+    st.write('Hello There!')
+else:
+    st.write('Good Bye!!!!!')    
+    
+    
